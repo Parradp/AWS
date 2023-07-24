@@ -24,17 +24,17 @@ In the file "variables.tf" you find everything that the variables modify.
 | [vpc_name](variables.tf) | Existing vpc name |  |
 | [subnet_private_cidr](variables.tf) | CIDR of existing private subnets |  |
 | [subnet_isolated_cidr](variables.tf) | CIDR of existing isolated subnets |  |
-| KeyPair | KeyPair module |  |
-| [environment](variables.tf) | Environment type |  |
-| Bastion | EC2 instance bastion module |  |
-| [instance_type_bastion](variables.tf) | Instance type bastion |  |
-| [desired_capacity](variables.tf) | ASG desired capacity (min - max) |  |
+| KeyPair | KeyPair module | Yes |
+| [environment](variables.tf) | Environment type | Yes |
+| Bastion | EC2 instance bastion module | Yes |
+| [instance_type_bastion](variables.tf) | Instance type bastion | Yes |
+| [desired_capacity](variables.tf) | ASG desired capacity (min - max) | Yes |
 
 
 ## Changes after deploying infrastructure
 
-# EKS Module
-### Configure AuthMap (If admin access is required)
+### EKS Module
+#### Configure AuthMap (If admin access is required)
 - AWS Login: aws configure
 - Install Kubectl: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 - aws eks update-kubeconfig --name (EKS_CLUSTER_NAME)
@@ -42,8 +42,8 @@ In the file "variables.tf" you find everything that the variables modify.
 
   mapUsers: |
     - userarn: USER_ARN
-      username: USERNAME
-      groups:
+    - username: USERNAME
+    - groups:
         - system:masters
 
 
