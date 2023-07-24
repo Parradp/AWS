@@ -1,0 +1,47 @@
+-------------------- MAIN --------------------
+
+module "rdsPostgres" {
+  source             = "./modules/rdsPostgres"
+  project_name       = var.project_name
+  dbp_engine_version = var.dbp_engine_version
+  dbp_username       = var.dbp_username
+  dbp_password       = var.dbp_password
+  dbp_subnetgroup    = var.dbp_subnetgroup
+  dbp_az             = var.dbp_az
+  dbp_security_group = [module.securityGroup.dbpostgres_security_group_id]
+  dbp_instance_count = var.dbp_instance_count
+  dbp_instance_type  = var.dbp_instance_type
+}
+
+-------------------- VARIABLES --------------------
+
+#RDS Postgres
+variable "dbp_engine_version" {
+  default = "XX.X"
+}
+
+variable "dbp_username" {
+  default = "" #<----- Sensitive information
+}
+
+variable "dbp_password" {
+  default = "" #<----- Sensitive information
+}
+
+variable "dbp_subnetgroup" {
+  default = "postgressubnetgroup"
+}
+
+variable "dbp_az" {
+  type    = list(string)
+  default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "dbp_instance_count" {
+  default     = 1
+  description = "Number of databases"
+}
+
+variable "dbp_instance_type" {
+  default = "db.t3.medium"
+}

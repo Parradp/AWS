@@ -1,0 +1,28 @@
+-------------------- MAIN --------------------
+
+module "eks" {
+  source            = "./modules/eks"
+  project_name      = var.project_name
+  cluster_version   = var.cluster_version
+  subnets_id        = data.aws_subnets.public_private.ids
+  subnet_private_id = data.aws_subnets.private.ids
+  amount_workers    = var.amount_workers
+  instance_type_eks = var.instance_type_eks
+}
+
+-------------------- VARIABLES --------------------
+
+#EKS
+variable "cluster_version" {
+  default = "1.27"
+}
+
+variable "instance_type_eks" {
+  type    = list(string)
+  default = ["t3a.small"]
+}
+
+variable "amount_workers" {
+  default     = "2"
+  description = "Asg desired capacity (min - max)"
+}

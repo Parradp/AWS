@@ -1,0 +1,18 @@
+-------------------- MAIN --------------------
+
+module "ecr" {
+  source            = "./modules/ecr"
+  repository_name1 = var.repository_name1
+  repository_name2 = var.repository_name2
+}
+
+-------------------- VARIABLES --------------------
+
+#ECR
+variable "repository_name1" {
+  default = "XXXXXXXXXX"
+}
+
+variable "repository_name2" {
+  default = "XXXXXXXXXX"
+}

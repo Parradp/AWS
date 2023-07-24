@@ -1,0 +1,15 @@
+-------------------- MAIN --------------------
+
+module "keyPair" {
+  source       = "./modules/keyPair"
+  environment  = var.environment
+  project_name = var.project_name
+}
+
+-------------------- VARIABLES --------------------
+
+#keyPair
+variable "environment" {
+  type    = string
+  default = "XXXXX"
+}

@@ -1,0 +1,8 @@
+-------------------- MAIN --------------------
+
+module "securityGroup" {
+  source               = "./modules/securityGroup"
+  vpc_id               = data.aws_vpc.vpc.id
+  subnet_private_cidr  = var.subnet_private_cidr
+  subnet_isolated_cidr = var.subnet_isolated_cidr
+}

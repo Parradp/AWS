@@ -1,0 +1,26 @@
+-------------------- MAIN --------------------
+
+module "asgEc2" {
+  source                  = "./modules/asgEc2"
+  project_name            = var.project_name
+  ec2app_ami              = data.aws_ami.amazon_2023.id
+  instance_type_ec2app    = var.instance_type_ec2app
+  key_account             = module.keyPair.key_pair
+  instance_profile_ec2app = module.asgBastion.iam_role_ssm
+  security_group_ec2app   = module.securityGroup.web_security_group_id
+  subnets_ec2app          = data.aws_subnets.private.ids
+  desired_capacity_ec2app = var.desired_capacity_ec2app
+}
+
+-------------------- VARIABLES --------------------
+
+#Ec2App
+variable "instance_type_ec2app" {
+  default     = "t3a.small"
+  description = "Instance type bastion"
+}
+
+variable "desired_capacity_ec2app" {
+  default     = "1"
+  description = "Ec2App desired capacity (min - max)"
+}

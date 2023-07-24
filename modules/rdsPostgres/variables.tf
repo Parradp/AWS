@@ -1,0 +1,9 @@
+variable "project_name" {}
+variable "dbp_engine_version" {}
+variable "dbp_username" {}
+variable "dbp_password" {}
+variable "dbp_subnetgroup" {}
+variable "dbp_az" {}
+variable "dbp_security_group" {}
+variable "dbp_instance_count" {}
+variable "dbp_instance_type" {}
