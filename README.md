@@ -24,16 +24,11 @@ In the file "variables.tf" you find everything that the variables modify.
 | [vpc_name](variables.tf) | Existing vpc name |  |
 | [subnet_private_cidr](variables.tf) | CIDR of existing private subnets |  |
 | [subnet_isolated_cidr](variables.tf) | CIDR of existing isolated subnets |  |
-| Bastion | EC2 instance bastion module | Yes |
+| KeyPair | KeyPair module |  |
+| [environment](variables.tf) | Environment type |  |
+| Bastion | EC2 instance bastion module |  |
 | [instance_type_bastion](variables.tf) | Instance type bastion |  |
 | [desired_capacity](variables.tf) | ASG desired capacity (min - max) |  |
-| Eks | EKS module |  |
-| [cluster_version](variables.tf) | EKS cluster version |  |
-| [instance_type_eks](variables.tf) | Instance type eks |  |
-| [amount_workers](variables.tf) | ASG desired capacity (min - max) |  |
-| Ecr | ECR module | Yes |
-| [repository_name1](variables.tf) | ECR repository name 1 | Yes |
-| [repository_name2](variables.tf) | ECR repository name 2 | Yes |
 
 
 ## Changes after deploying infrastructure
