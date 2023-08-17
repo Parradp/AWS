@@ -1,2 +1,2 @@
-variable "repositorie_name1" {}
-variable "repositorie_name2" {}
+variable "repository_name1" {}
+variable "repository_name2" {}
